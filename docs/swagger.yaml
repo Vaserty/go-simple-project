@@ -1,0 +1,42 @@
+definitions:
+  entrypoints.ErrorResponse:
+    properties:
+      details:
+        type: string
+    type: object
+  services.SearchResultDto:
+    properties:
+      found:
+        type: boolean
+      index:
+        type: integer
+      value:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /numbers/{value}:
+    get:
+      description: Searches for the index for the given value
+      parameters:
+      - description: Value to look for.
+        in: path
+        name: value
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/services.SearchResultDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/entrypoints.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/entrypoints.ErrorResponse'
+      summary: Search Index For Value Endpoint
+swagger: "2.0"

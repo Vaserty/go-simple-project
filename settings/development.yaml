@@ -1,0 +1,15 @@
+app:
+  name: "simple-project"
+  currentEnvironment: "development"
+
+numbersFile:
+  sourcePath: "samples/input.txt"
+
+logger:
+  level: "debug"
+
+searcher:
+  maxToleranceDiffPercent: 10
+
+httpServer:
+  port: 8000
